@@ -15,13 +15,10 @@ class MathematicalExpression {
      */
     public static float calculateExpression(char n, char m, char a, char b, final char C) {
         float s = 0;      //final result of the calculation
-        float subsum = 0;     //the result of inner summation
 
         for (char i = a; i <= n; i++) {      //loop for outer summation
-            s += subsum;
-            subsum = 0;
             for (char j = b; j <= m; j++) {      //loop for inner summation
-                subsum += ((float) (i - j) / (float) (i + C));
+                s += ((float) (i - j) / (float) (i + C));
             }
         }
 

@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -5,14 +6,24 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        final char C = '1';
-        float res=0;      //variable for storing the result of calculation
+        final char C = '1';     //Constant value
+        float res;      //variable for storing the result of calculation
 
         Scanner sc = new Scanner(System.in);
         System.out.println("1-type values manually / 2-use predefined values");
-        short inp = sc.nextShort();
 
-        //Checking if value typed by person is 1 or 2
+        short inp;
+
+        //Exception handling
+        try{
+            inp = sc.nextShort();
+        }
+        catch (InputMismatchException exc){     //If the number typed by user is not a short int
+            System.out.println("Incorrect input value, number should be either 1 or 2");
+            return;
+        }
+
+        //Checking if value typed by user is 1 or 2
         switch (inp){
             case 1:
                 System.out.println("Type n:");
@@ -29,6 +40,9 @@ public class Main {
             case 2:
                 res = MathematicalExpression.calculateExpression('z','x', 'v', 'a', C);
                 break;
+            default:
+                System.out.println("Incorrect input value, number should be either 1 or 2");
+                return;
         }
         System.out.print("The result of calculation is " + res);
     }
