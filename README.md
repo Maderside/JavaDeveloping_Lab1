@@ -1,4 +1,4 @@
-# JavaDeveloping_Lab1
+# JavaDevelopment_Lab1
 Galaktionov Maksym, IS-12
 This is a repository that stores the program for the task of the Lab 1.
 
